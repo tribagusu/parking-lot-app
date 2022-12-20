@@ -1,0 +1,35 @@
+.parking-lot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80vh;
+  border: 3px solid #909094;
+  border-radius: 50px;
+}
+
+.parking-lot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.parking-lot-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.parking-lot .parking-lot-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  width: 90%;
+  height: 80%;
+  margin-top: 30px;
+}

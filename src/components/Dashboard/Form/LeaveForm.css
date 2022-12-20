@@ -1,0 +1,46 @@
+.leave-form-dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  height: 250px;
+}
+
+.leave-form-dashboard .parking-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.leave-form-dashboard .parking-info h2 {
+  line-height: 0;
+  font-weight: 500;
+}
+
+.leave-form-dashboard .parking-info h2 span {
+  color: tan;
+}
+
+.leave-form-dashboard button {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background: rgb(230, 107, 98);
+  border: none;
+  cursor: pointer;
+}
+
+.leave-form-dashboard button:hover {
+  background-color: transparent;
+  color: rgb(230, 107, 98);
+  border: 1px solid rgb(230, 107, 98);
+}
+
+.leave-form-dashboard button span {
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}

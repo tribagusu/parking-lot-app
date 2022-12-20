@@ -1,0 +1,42 @@
+.booking-form-dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  height: 250px;
+}
+
+.booking-form-dashboard input {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #1b1b1c;
+  border: 1px solid transparent;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.booking-form-dashboard input:focus {
+  border: 1px solid tan;
+}
+.booking-form-dashboard button {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: tan;
+  cursor: pointer;
+}
+
+.booking-form-dashboard button:hover {
+  background-color: rgb(202, 168, 124);
+}
+
+.booking-form-dashboard button span {
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
