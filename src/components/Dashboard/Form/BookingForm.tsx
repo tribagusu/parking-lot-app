@@ -1,8 +1,22 @@
+import { useAtom } from "jotai"
+import { parkingLotAtom } from "../../ParkingLot/Card/Card"
 import "./BookingForm.css"
 
 const BookingForm = (props: any) => {
-  const { handleSubmit, changeCarNumber, changeCarColor, changeParkingLot } =
-    props
+  const [parkingLot] = useAtom(parkingLotAtom)
+
+  const {
+    handleSubmit,
+    changeCarNumber,
+    changeCarColor,
+    changeParkingNumber,
+    parkingNumber,
+    setParkingNumber,
+  } = props
+
+  if (parkingLot) {
+    setParkingNumber(parkingLot)
+  }
 
   return (
     <form className="booking-form-dashboard" onSubmit={handleSubmit}>
@@ -20,8 +34,9 @@ const BookingForm = (props: any) => {
       />
       <input
         type="number"
+        value={parkingNumber}
         placeholder="Parking Lot Number"
-        onChange={changeParkingLot}
+        onChange={changeParkingNumber}
         required
       />
       <button>

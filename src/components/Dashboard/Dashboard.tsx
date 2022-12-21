@@ -1,17 +1,19 @@
-import { FormEvent, ChangeEvent, useState } from "react"
+import { FormEvent, ChangeEvent, useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { atom, useAtom } from "jotai"
 import BookingForm from "./Form/BookingForm"
 import LeaveForm from "./Form/LeaveForm"
 import "./Dashboard.css"
 
+export const parkingLotAtom = atom<string>("")
 const Dashboard = () => {
   const [carNumber, setCarNumber] = useState<number>(0)
   const [carColor, setCarColor] = useState<string>("")
-  const [parkingLot, setParkingLot] = useState<number>(0)
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
+  const [parkingNumber, setParkingNumber] = useState<number | null>(null)
+  const [isBooked, setIsBooked] = useState<boolean>(false)
 
-  const changeParkingLot = (e: ChangeEvent<HTMLInputElement>) => {
-    setParkingLot(Number(e.target.value))
+  const changeParkingNumber = (e: ChangeEvent<HTMLInputElement>) => {
+    setParkingNumber(Number(e.target.value))
   }
   const changeCarNumber = (e: ChangeEvent<HTMLInputElement>) => {
     setCarNumber(Number(e.target.value))
@@ -23,7 +25,7 @@ const Dashboard = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setIsSubmitted(true)
+    setIsBooked(true)
   }
 
   const props = {
@@ -31,32 +33,30 @@ const Dashboard = () => {
     setCarNumber,
     carColor,
     setCarColor,
-    parkingLot,
-    setParkingLot,
-    changeParkingLot,
+    parkingNumber,
+    setParkingNumber,
+    changeParkingNumber,
     changeCarNumber,
     changeCarColor,
     handleSubmit,
-    setIsSubmitted,
+    setIsBooked,
   }
 
   return (
     <div className="dashboard">
-      {!isSubmitted ? (
+      {!isBooked ? (
         <h2>Book Your Parking Space</h2>
       ) : (
         <h2>Your Parking Info</h2>
       )}
 
       <div className="dashboard-card-container">
-        {!isSubmitted ? <BookingForm {...props} /> : <LeaveForm {...props} />}
+        {!isBooked ? <BookingForm {...props} /> : <LeaveForm {...props} />}
         <div className="notif-availability">
           {/* <span>is not available</span> */}
         </div>
         <div className="find-parking-button">
-          {!isSubmitted && (
-            <Link to="/parking-lot">Find a Free Space &rarr;</Link>
-          )}
+          {!isBooked && <Link to="/parking-lot">Find a Free Space &rarr;</Link>}
         </div>
       </div>
     </div>

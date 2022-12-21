@@ -1,24 +1,34 @@
-import React from "react"
+import { useAtom } from "jotai"
+import { parkingLotAtom } from "../../ParkingLot/Card/Card"
 import "./LeaveForm.css"
 
 const LeaveForm = (props: any) => {
-  const { carColor, carNumber, parkingLot, setIsSubmitted } = props
+  const { carColor, carNumber, setIsBooked, setParkingNumber, parkingNumber } =
+    props
+
+  const [parkingLot, setParkingLot] = useAtom(parkingLotAtom)
+
+  const onLeave = () => {
+    setIsBooked(false)
+    setParkingNumber(null)
+    setParkingLot(null)
+  }
 
   return (
     <>
       <div className="leave-form-dashboard">
         <div className="parking-info">
-          <h2>
+          <h3>
             Car Number: <span>{carNumber}</span>
-          </h2>
-          <h2>
+          </h3>
+          <h3>
             Car Color: <span>{carColor.toUpperCase()}</span>
-          </h2>
-          <h2>
-            Parking Number: <span>{parkingLot}</span>
-          </h2>
+          </h3>
+          <h3>
+            Parking Number: <span>{parkingNumber}</span>
+          </h3>
         </div>
-        <button onClick={() => setIsSubmitted(false)}>
+        <button onClick={onLeave}>
           <span>Leave</span>
         </button>
       </div>

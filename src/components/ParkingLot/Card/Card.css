@@ -35,3 +35,13 @@
   background-color: tan;
   cursor: pointer;
 }
+
+.card .parking-availability button:hover {
+  background-color: transparent;
+  border: 1px solid tan;
+  color: tan;
+}
+
+.card .booked-status {
+  color: rgb(196, 49, 49);
+}

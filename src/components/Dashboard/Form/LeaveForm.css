@@ -15,17 +15,19 @@
   width: 100%;
 }
 
-.leave-form-dashboard .parking-info h2 {
+.leave-form-dashboard .parking-info h3 {
   line-height: 0;
   font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-.leave-form-dashboard .parking-info h2 span {
+.leave-form-dashboard .parking-info h3 span {
   color: tan;
 }
 
 .leave-form-dashboard button {
-  width: 100%;
+  width: 70%;
   height: 50px;
   border-radius: 10px;
   background: rgb(230, 107, 98);
