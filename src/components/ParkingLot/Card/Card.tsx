@@ -18,8 +18,8 @@ const Card = () => {
 
   return (
     <>
-      {data.map((item) => (
-        <div className="card" key={item.lotNumber}>
+      {data.map((item, index) => (
+        <div className="card" key={index}>
           <div className="parking-lot-number">
             <h2>{item.lotNumber}</h2>
           </div>

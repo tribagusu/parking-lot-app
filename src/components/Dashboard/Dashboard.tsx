@@ -23,9 +23,11 @@ const Dashboard = () => {
     setCarColor(e.target.value)
   }
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setIsBooked(true)
+  const handleBooking = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (parkingNumber !== 0) {
+      setIsBooked(true)
+    }
   }
 
   const props = {
@@ -38,7 +40,7 @@ const Dashboard = () => {
     changeParkingNumber,
     changeCarNumber,
     changeCarColor,
-    handleSubmit,
+    handleBooking,
     setIsBooked,
   }
 
@@ -52,9 +54,7 @@ const Dashboard = () => {
 
       <div className="dashboard-card-container">
         {!isBooked ? <BookingForm {...props} /> : <LeaveForm {...props} />}
-        <div className="notif-availability">
-          {/* <span>is not available</span> */}
-        </div>
+        <div className="notif-availability"></div>
         <div className="find-parking-button">
           {!isBooked && <Link to="/parking-lot">Find a Free Space &rarr;</Link>}
         </div>

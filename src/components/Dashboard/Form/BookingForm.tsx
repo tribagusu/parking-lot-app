@@ -6,7 +6,7 @@ const BookingForm = (props: any) => {
   const [parkingLot] = useAtom(parkingLotAtom)
 
   const {
-    handleSubmit,
+    handleBooking,
     changeCarNumber,
     changeCarColor,
     changeParkingNumber,
@@ -19,7 +19,7 @@ const BookingForm = (props: any) => {
   }
 
   return (
-    <form className="booking-form-dashboard" onSubmit={handleSubmit}>
+    <form className="booking-form-dashboard" onSubmit={handleBooking}>
       <input
         type="number"
         placeholder="Car Number"
@@ -34,12 +34,12 @@ const BookingForm = (props: any) => {
       />
       <input
         type="number"
-        value={parkingNumber}
+        value={parkingNumber === null ? undefined : parkingNumber}
         placeholder="Parking Lot Number"
         onChange={changeParkingNumber}
         required
       />
-      <button>
+      <button className="booking-form-button">
         <span>Book</span>
       </button>
     </form>

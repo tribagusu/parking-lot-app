@@ -1,17 +1,14 @@
-import { useAtom } from "jotai"
-import { parkingLotAtom } from "../../ParkingLot/Card/Card"
+import React, { useState } from "react"
+
+import LeaveModal from "./LeaveModal"
 import "./LeaveForm.css"
 
 const LeaveForm = (props: any) => {
-  const { carColor, carNumber, setIsBooked, setParkingNumber, parkingNumber } =
-    props
+  const { carColor, carNumber, parkingNumber } = props
+  const [showModal, setShowModal] = useState<boolean>(false)
 
-  const [parkingLot, setParkingLot] = useAtom(parkingLotAtom)
-
-  const onLeave = () => {
-    setIsBooked(false)
-    setParkingNumber(null)
-    setParkingLot(null)
+  const handleModal = () => {
+    setShowModal(true)
   }
 
   return (
@@ -28,9 +25,16 @@ const LeaveForm = (props: any) => {
             Parking Number: <span>{parkingNumber}</span>
           </h3>
         </div>
-        <button onClick={onLeave}>
+        <button onClick={handleModal}>
           <span>Leave</span>
         </button>
+        {showModal && (
+          <LeaveModal
+            {...props}
+            setShowModal={setShowModal}
+            showModal={showModal}
+          />
+        )}
       </div>
     </>
   )
