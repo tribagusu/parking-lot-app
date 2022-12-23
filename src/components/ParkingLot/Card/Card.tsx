@@ -10,9 +10,9 @@ export const parkingLotAtom = atom<number | null>(null)
 const Card = () => {
   const [parkingLot, setParkingLot] = useAtom(parkingLotAtom)
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const selectBooking = (lotNumber: number | null) => {
-    navigate("/")
+    // navigate("/")
     setParkingLot(lotNumber)
   }
 

@@ -12,7 +12,6 @@ interface ModalProps {
 }
 
 const LeaveModal = (props: ModalProps): JSX.Element => {
-  const { setIsBooked, setParkingNumber, carNumber, setShowModal } = props
   const [parkingLot, setParkingLot] = useAtom(parkingLotAtom)
   const [confirmCarNumber, setConfirmCarNumber] = useState<number | null>(null)
   const [errorNumber, serErrorNumber] = useState<boolean>(false)
@@ -22,17 +21,17 @@ const LeaveModal = (props: ModalProps): JSX.Element => {
   }
 
   const handleLeave = () => {
-    if (confirmCarNumber === carNumber) {
-      setIsBooked(false)
+    if (confirmCarNumber === props.carNumber) {
+      props.setIsBooked(false)
     } else {
       serErrorNumber(true)
     }
-    setParkingNumber(null)
+    props.setParkingNumber(null)
     setParkingLot(null)
   }
 
   const handleCancelLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setShowModal(false)
+    props.setShowModal(false)
   }
 
   useEffect(() => {
