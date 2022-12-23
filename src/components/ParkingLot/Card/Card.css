@@ -4,9 +4,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  min-width: 300px;
+  height: 100%;
   border: 1px solid #909094;
   border-radius: 10px;
+  padding: 20px;
 }
 
 .card .parking-lot-number {
@@ -44,4 +46,16 @@
 
 .card .booked-status {
   color: rgb(196, 49, 49);
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    min-width: 250px;
+  }
+
+  .card .parking-availability {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 80%;
+  }
 }
